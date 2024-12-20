@@ -2,11 +2,10 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 @Component({
-  selector: 'app-privacy-policy',
-  standalone: true,
-  imports: [CommonModule,
-                             RouterModule],
-  template: `
+    selector: 'app-privacy-policy',
+    imports: [CommonModule,
+        RouterModule],
+    template: `
     <div class="privacy-container">
       <div class="privacy-content">
         <h1>Politique de Confidentialité</h1>
@@ -54,7 +53,7 @@ import { RouterModule } from '@angular/router';
       </div>
     </div>
   `,
-  styles: [`
+    styles: [`
     .privacy-container {
       background: linear-gradient(135deg, #3f4c6b, #1d2731);
       color: #fff;

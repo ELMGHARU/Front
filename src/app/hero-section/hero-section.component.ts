@@ -3,10 +3,9 @@ import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-hero-section',
-  standalone: true,
-  imports: [RouterLink, CommonModule],
-  template: `
+    selector: 'app-hero-section',
+    imports: [RouterLink, CommonModule],
+    template: `
     <div class="relative overflow-hidden bg-white">
       <!-- Background Pattern -->
       <div class="absolute inset-0 opacity-10">
@@ -64,7 +63,7 @@ import { CommonModule } from '@angular/common';
       </div>
     </div>
   `,
-  styles: [`
+    styles: [`
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }

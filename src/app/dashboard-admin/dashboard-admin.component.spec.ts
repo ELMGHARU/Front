@@ -10,8 +10,6 @@ describe('DashboardAdminComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule,
-        HttpClientTestingModule,
         DashboardAdminComponent // Comme composant standalone
       ]
     }).compileComponents();
