@@ -1,0 +1,120 @@
+<div class="create-section animate-fade-in">
+  <div class="cards-grid">
+    <!-- Nouveau Paquet -->
+    <div class="card create-card" (click)="createNewDeck()">
+      <div class="create-card-content">
+        <div class="icon-circle">
+          <i class="fas fa-plus"></i>
+        </div>
+        <h3>Créer un nouveau paquet</h3>
+        <p>Commencez à zéro avec un nouveau paquet de cartes</p>
+      </div>
+    </div>
+
+    <!-- Importer -->
+    <div class="card create-card" (click)="importFromLibrary()">
+      <div class="create-card-content">
+        <div class="icon-circle">
+          <i class="fas fa-file-import"></i>
+        </div>
+        <h3>Importer un paquet</h3>
+        <p>Importer un paquet depuis votre ordinateur</p>
+      </div>
+    </div>
+  </div>
+  <div class="deck-list">
+    <h2 class="mb-4">Mes Decks</h2>
+    <div class="row">
+      <div class="col-md-4" *ngFor="let deck of decks">
+        <div class="card mb-4">
+          <div class="card-header">
+            <h5 class="card-title">{{ deck.name }}</h5>
+          </div>
+          <div class="card-body">
+            <!-- Ajoutez ici d'autres informations sur le deck si nécessaire -->
+          </div>
+          <div class="card-footer text-center">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<!-- Modale -->
+<div class="deck-modal" *ngIf="showNewDeckModal" (click)="closeModal()">
+  <div class="deck-modal-content" (click)="$event.stopPropagation()">
+    <div class="modal-title">
+      <span>Nouveau paquet</span>
+      <button class="modal-close" (click)="closeModal()">×</button>
+    </div>
+
+    <div class="modal-tabs">
+      <button
+        [class.active]="!isImportMode"
+        (click)="setMode(false)"
+      >Créer</button>
+      <button
+        [class.active]="isImportMode"
+        (click)="setMode(true)"
+      >Importer</button>
+    </div>
+
+    <!-- Vue Création -->
+    <div *ngIf="!isImportMode">
+      <p class="modal-description">
+        Créez votre propre paquet. Vous déterminerez ensuite le thème, les cartes que vous avez créées, etc.
+      </p>
+
+      <input
+        type="text"
+        class="deck-name-input"
+        placeholder="Nom du paquet"
+        [(ngModel)]="newDeckName"
+      >
+
+      <button
+        class="create-deck-btn"
+        [disabled]="!newDeckName.trim()"
+        (click)="confirmDeckCreation()"
+      >
+        Créer un nouveau paquet
+      </button>
+    </div>
+
+    <!-- Vue Importation -->
+    <div *ngIf="isImportMode">
+      <div class="import-zone"
+           (click)="fileInput.click()"
+           (dragover)="onDragOver($event)"
+           (drop)="onDrop($event)">
+        <input
+          #fileInput
+          type="file"
+          accept=".json,.csv"
+          (change)="onFileSelected($event)"
+          hidden
+        >
+        <div class="import-content">
+          <i class="fas fa-file-upload"></i>
+          <p>Cliquez pour sélectionner ou déposez un fichier</p>
+          <span>Formats acceptés: .json, .csv</span>
+        </div>
+      </div>
+
+      <div *ngIf="selectedFile" class="selected-file">
+        <i class="fas fa-file"></i>
+        <span>{{ selectedFile.name }}</span>
+      </div>
+
+      <button
+        class="create-deck-btn"
+        [disabled]="!selectedFile"
+        (click)="importFile()"
+      >
+        Importer le paquet
+      </button>
+    </div>
+  </div>
+</div>
+</div>

@@ -1,0 +1,1 @@
+: 2tsX9hrsrc/app/flashcard.service.ts

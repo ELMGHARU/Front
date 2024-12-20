@@ -1,0 +1,72 @@
+<div class="card">
+  <h2>Ajouter une carte</h2>
+
+  <form (ngSubmit)="addFlashcard()">
+    <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+
+    <div>
+      <label for="question">Question:</label>
+      <input
+        id="question"
+        [(ngModel)]="flashcard.question"
+        name="question"
+        type="text"
+        required
+        placeholder="Entrez la question"
+      />
+    </div>
+
+    <div>
+      <label for="answer">Réponse:</label>
+      <input
+        id="answer"
+        [(ngModel)]="flashcard.answer"
+        name="answer"
+        type="text"
+        required
+        placeholder="Entrez la réponse"
+      />
+    </div>
+
+    <div>
+      <label for="image">Image (optionnel):</label>
+      <input
+        id="image"
+        type="file"
+        (change)="onImageSelected($event)"
+      />
+      <div *ngIf="selectedImage">
+        <img [src]="selectedImage" alt="Sélectionnée" width="100"/>
+        <button (click)="removeImage()">Supprimer l'image</button>
+      </div>
+    </div>
+
+    <div>
+      <label for="difficultyLevel">Niveau de difficulté:</label>
+      <select
+        id="difficultyLevel"
+        [(ngModel)]="flashcard.difficultyLevel"
+        name="difficultyLevel"
+      >
+        <option value="1">Facile</option>
+        <option value="2">Moyen</option>
+        <option value="3">Difficile</option>
+      </select>
+    </div>
+
+    <div>
+      <button type="submit" [disabled]="isLoading">Ajouter la carte</button>
+    </div>
+  </form>
+
+  <button (click)="goBack()">Retour aux decks</button>
+
+  <div *ngIf="flashcards.length > 0">
+    <h3>Cartes existantes pour ce deck:</h3>
+    <ul>
+      <li *ngFor="let card of flashcards">
+        <strong>{{ card.question }}</strong> - {{ card.answer }}
+      </li>
+    </ul>
+  </div>
+</div>

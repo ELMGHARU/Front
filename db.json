@@ -1,0 +1,93 @@
+{
+  "authenticate": [
+    {
+      "id": 1,
+      "username": "john_doe",
+      "email": "john@example.com",
+      "password": "securePassword123"
+    },
+    {
+      "id": "404a",
+      "email": "john@example.com",
+      "password": "securePassword123"
+    },
+    {
+      "id": "690d",
+      "email": "john@example.com",
+      "password": ""
+    },
+    {
+      "id": "1b72",
+      "email": "john@example.com",
+      "password": "securePassword123"
+    },
+    {
+      "id": "82bf",
+      "email": "john@example.com",
+      "password": "securePassword123"
+    },
+    {
+      "id": "7116",
+      "email": "john@example.com",
+      "password": "securePassword123"
+    },
+    {
+      "id": "6e4c",
+      "email": "john@example.com",
+      "password": ""
+    }
+  ],
+  "auth": {
+    "tokens": [
+      {
+        "token": "eyJhbGciOiJIUzI1...",
+        "refreshToken": "eyJhbGciOiJIUzI1..."
+      }
+    ]
+  },
+  "decks": [
+    {
+      "id": 1,
+      "name": "Spanish Vocabulary",
+      "description": "Basic Spanish words",
+      "tags": [
+        "language",
+        "spanish",
+        "beginner"
+      ],
+      "totalCards": 50,
+      "masteredCards": 20,
+      "averageSuccessRate": 85.5
+    }
+  ],
+  "flashcards": [
+    {
+      "id": 1,
+      "question": "Hello in Spanish",
+      "answer": "Hola",
+      "imageUrl": null,
+      "deckId": 1,
+      "difficultyLevel": 2,
+      "nextReviewDate": "2024-11-11T10:00:00",
+      "reviewCount": 5,
+      "successRate": 80
+    }
+  ],
+  "studySessions": [
+    {
+      "id": 1,
+      "deckId": 1,
+      "startTime": "2024-11-10T15:00:00",
+      "cardsReviewed": 0,
+      "correctAnswers": 0,
+      "accuracy": 0
+    }
+  ],
+  "statistics": {
+    "totalSessions": 10,
+    "totalCardsReviewed": 200,
+    "averageAccuracy": 82.5,
+    "totalStudyTimeMinutes": 120,
+    "streakDays": 5
+  }
+}

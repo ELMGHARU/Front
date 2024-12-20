@@ -1,0 +1,60 @@
+<!-- register.component.html -->
+<div class="register-container">
+  <div class="register-box">
+    <h1>Inscription</h1>
+
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <input
+          type="text"
+          [(ngModel)]="username"
+          name="username"
+          placeholder="Nom d'utilisateur"
+          required
+          [disabled]="isLoading"
+          class="form-control"
+        />
+      </div>
+
+      <div class="form-group">
+        <input
+          type="email"
+          [(ngModel)]="email"
+          name="email"
+          placeholder="E-mail"
+          required
+          [disabled]="isLoading"
+          class="form-control"
+        />
+      </div>
+
+      <div class="form-group">
+        <input
+          type="password"
+          [(ngModel)]="password"
+          name="password"
+          placeholder="Mot de passe"
+          required
+          [disabled]="isLoading"
+          class="form-control"
+        />
+      </div>
+
+      <div *ngIf="errorMessage" class="alert alert-danger">
+        {{ errorMessage }}
+      </div>
+
+      <button
+        type="submit"
+        class="register-btn"
+        [disabled]="isLoading">
+        {{ isLoading ? 'Inscription en cours...' : 'S\'inscrire' }}
+      </button>
+
+      <div class="login-text">
+        Vous avez déjà un compte?
+        <a routerLink="/login" class="login-link">Connectez-vous</a>
+      </div>
+    </form>
+  </div>
+</div>

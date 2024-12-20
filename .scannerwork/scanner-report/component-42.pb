@@ -1,0 +1,1 @@
+* 2cssXhr)src/app/deck-list/deck-list.component.css

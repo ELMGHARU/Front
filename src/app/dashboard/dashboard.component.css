@@ -1,0 +1,1062 @@
+.dashboard {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 260px;
+  background-color: #2D2A4A; /* Couleur mauve foncé */
+  padding: 2rem;
+  height: 100vh;
+  position: fixed;
+}
+
+.nav-title {
+  color: #A9A7C1;
+  font-size: 12px;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+.logout-btn {
+  background: linear-gradient(145deg, #FF416C, #FF4B2B);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 4px rgba(255, 65, 108, 0.2);
+  margin-top: auto;
+  width: 100%;
+}
+
+.logout-btn i {
+  font-size: 1.1rem;
+  transition: transform 0.2s ease;
+}
+
+.logout-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 65, 108, 0.4);
+}
+
+.logout-btn:hover i {
+  transform: scale(1.2);
+  animation: doorOpen 0.5s ease;
+}
+
+.logout-btn:active {
+  transform: scale(0.95);
+  box-shadow: 0 2px 4px rgba(255, 65, 108, 0.2);
+}
+
+@keyframes doorOpen {
+  0% {
+    transform: scale(1) translateX(0);
+  }
+  50% {
+    transform: scale(1.2) translateX(5px);
+  }
+  100% {
+    transform: scale(1.2) translateX(0);
+  }
+}
+.nav-item {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem;
+  color: #A9A7C1;
+  text-decoration: none;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.nav-item i {
+  width: 20px;
+  margin-right: 12px;
+}
+
+.nav-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #FFFFFF;
+}
+
+.nav-item.active {
+  background-color: #6C63FF;
+  color: white;
+}
+
+/* Main Content */
+.main-content {
+  margin-left: 260px;
+  background-color: #F5F5F5;
+  min-height: 100vh;
+  padding: 2rem;
+  flex: 1;
+}
+
+/* Header */
+.content-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.search-bar {
+  position: relative;
+  width: 300px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.5rem;
+  border: 1px solid #EEEEEE;
+  border-radius: 8px;
+  background-color: #FFFFFF;
+}
+
+.search-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #666666;
+}
+
+.button {
+  padding: 0.75rem 1.5rem;
+  background-color: #6C63FF;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Cards Grid */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.card {
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.card-title {
+  font-size: 18px;
+  color: #333333;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+.badge-warning {
+  background-color: #FFE5CC;
+  color: #FF9500;
+}
+
+.badge-success {
+  background-color: #D1F2D9;
+  color: #34C759;
+}
+
+.stats-value {
+  font-size: 32px;
+  font-weight: bold;
+  color: #333333;
+  margin: 1rem 0;
+}
+
+.trend-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 14px;
+}
+
+.trend-up {
+  color: #34C759;
+}
+
+.trend-down {
+  color: #FF3B30;
+}
+
+/* Create Section */
+.create-section {
+  margin-top: 2rem;
+}
+
+.create-section h2 {
+  margin-bottom: 1.5rem;
+  color: #333333;
+}
+
+.create-card {
+  cursor: pointer;
+  text-align: center;
+}
+
+.icon-circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #F5F5F5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+}
+
+.icon-circle i {
+  color: #6C63FF;
+  font-size: 24px;
+}
+
+/* Deck List */
+.deck-list {
+  margin-top: 2rem;
+}
+
+.deck-info {
+  display: flex;
+  justify-content: space-between;
+  color: #666666;
+  margin-bottom: 1rem;
+}
+
+.deck-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.button-secondary {
+  padding: 0.75rem 1rem;
+  background-color: #F5F5F5;
+  border: none;
+  border-radius: 8px;
+  color: #666666;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.button-primary {
+  padding: 0.75rem 1rem;
+  background-color: #6C63FF;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Modal */
+.deck-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+
+}
+
+.deck-modal-content {
+  background-color: #FFFFFF;
+  width: 90%;
+  max-width: 400px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.modal-title {
+  padding: 16px;
+  border-bottom: 1px solid #EEEEEE;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-title span {
+  font-size: 18px;
+  font-weight: 500;
+  color: #000000;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #666666;
+}
+
+.modal-tabs {
+  display: flex;
+  padding: 8px;
+  background-color: #F5F5F5;
+  margin: 16px;
+  border-radius: 8px;
+}
+
+.modal-tabs button {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: transparent;
+  color: #666666;
+}
+
+.modal-tabs button.active {
+  background-color: #6C63FF;
+  color: #FFFFFF;
+}
+
+.modal-description {
+  padding: 0 16px;
+  color: #666666;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.deck-name-input {
+  width: calc(100% - 32px);
+  margin: 16px;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #DDDDDD;
+  background-color: #F5F5F5;
+  color: #000000;
+}
+
+.create-deck-btn {
+  width: calc(100% - 32px);
+  margin: 16px;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: #6C63FF;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+.create-deck-btn:disabled {
+  opacity: 0.5;
+}
+
+/* Import Zone */
+.import-zone {
+  margin: 16px;
+  padding: 24px;
+  border: 2px dashed #DDDDDD;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  background-color: #FFFFFF;
+}
+
+.import-content {
+  color: #666666;
+}
+
+.import-content i {
+  font-size: 32px;
+  margin-bottom: 12px;
+  color: #6C63FF;
+}
+
+.selected-file {
+  margin: 16px;
+  padding: 12px;
+  background-color: #F5F5F5;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.remove-file {
+  margin-left: auto;
+  background: none;
+  border: none;
+  color: #666666;
+  cursor: pointer;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background-color: #F5F5F5;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 1rem;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: #6C63FF;
+  transition: width 0.3s ease;
+}
+
+/* Animation */
+.animate-fade-in {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+  .main-content {
+    margin-left: 0;
+  }
+
+  .content-header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .search-bar {
+    width: 100%;
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .deck-actions {
+    flex-direction: column;
+  }
+ /* Deck Card Animation */
+ .deck-card {
+   background-color: #FFFFFF;
+   border-radius: 12px;
+   padding: 1.5rem;
+   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+   cursor: pointer;
+   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+   position: relative;
+   transform-origin: center;
+ }
+
+ .deck-card:hover {
+   transform: translateY(-8px);
+   box-shadow: 0 10px 20px rgba(108, 99, 255, 0.15);
+ }
+
+ .deck-card:active {
+   animation: deckPulse 0.4s ease;
+ }
+
+ @keyframes deckPulse {
+   0% {
+     transform: scale(1);
+   }
+   50% {
+     transform: scale(0.95) rotate(-2deg);
+   }
+   100% {
+     transform: scale(1);
+   }
+ }
+
+ /* Style des boutons dans le deck */
+ .deck-actions {
+   display: flex;
+   gap: 1rem;
+ }
+
+ .button-secondary {
+   padding: 0.75rem 1rem;
+   background-color: #F5F5F5;
+   border: none;
+   border-radius: 8px;
+   color: #666666;
+   cursor: pointer;
+   display: flex;
+   align-items: center;
+   gap: 0.5rem;
+   transition: all 0.3s ease;
+ }
+
+ .button-primary {
+   padding: 0.75rem 1rem;
+   background-color: #6C63FF;
+   border: none;
+   border-radius: 8px;
+   color: white;
+   cursor: pointer;
+   display: flex;
+   align-items: center;
+   gap: 0.5rem;
+   transition: all 0.3s ease;
+ }
+
+ .delete-btn {
+   background: linear-gradient(145deg, #FF3B30, #FF1F1F);
+   color: white;
+   border: none;
+   border-radius: 8px;
+   padding: 0.75rem;
+   width: 42px;
+   height: 42px;
+   cursor: pointer;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   transition: all 0.3s ease;
+ }
+
+ /* Animations des boutons */
+ .button-secondary:hover,
+ .button-primary:hover,
+ .delete-btn:hover {
+   transform: translateY(-2px);
+ }
+
+ .button-secondary:active,
+ .button-primary:active,
+ .delete-btn:active {
+   transform: scale(0.95);
+ }
+
+    &:active {
+      transform: scale(0.98);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .card-title {
+      font-size: 18px;
+      color: #333333;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .deck-info {
+      display: flex;
+      justify-content: space-between;
+      color: #666666;
+      margin-bottom: 1rem;
+    }
+
+    .deck-actions {
+      display: flex;
+      gap: 1rem;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.3s ease;
+    }
+
+    &:hover .deck-actions {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .button-primary,
+    .button-secondary,
+    .btn-danger {
+      transition: all 0.2s ease;
+
+      &:active {
+        transform: scale(0.95);
+      }
+    }
+
+    .progress-bar {
+      margin-top: 1rem;
+      background-color: #F5F5F5;
+      border-radius: 4px;
+      overflow: hidden;
+      height: 8px;
+
+      .progress-fill {
+        height: 100%;
+        background-color: #6C63FF;
+        transition: width 0.3s ease;
+      }
+    }
+  }
+.delete-button {
+  background: linear-gradient(145deg, #FF3B30, #FF1F1F);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem;
+  width: 42px;
+  height: 42px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 4px rgba(255, 59, 48, 0.2);
+
+  i {
+    font-size: 1.1rem;
+    transition: transform 0.2s ease;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 59, 48, 0.4);
+
+    i {
+      transform: rotate(12deg);
+    }
+  }
+
+  &:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 4px rgba(255, 59, 48, 0.2);
+  }
+}
+  /* Animation globale pour les cartes */
+  .animate-fade-in {
+    animation: fadeIn 0.4s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  /* Stats Cards Animation */
+  .card {
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+  }
+
+  .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(108, 99, 255, 0.15);
+  }
+
+  .card:active {
+    animation: cardClick 0.4s ease;
+  }
+
+  @keyframes cardClick {
+    0% {
+      transform: scale(1) rotate(0deg);
+    }
+    50% {
+      transform: scale(0.95) rotate(-2deg);
+    }
+    100% {
+      transform: scale(1) rotate(0deg);
+    }
+  }
+
+  /* Style spécifique pour les badges */
+  .badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+  }
+
+  .badge-warning {
+    background-color: #FFE5CC;
+    color: #FF9500;
+  }
+
+  .badge-success {
+    background-color: #D1F2D9;
+    color: #34C759;
+  }
+
+  /* Animation des icônes et valeurs */
+  .card:hover .card-title i {
+    animation: rotateIcon 0.5s ease;
+  }
+
+  .card:hover .stats-value {
+    animation: pulseValue 0.5s ease;
+  }
+
+  @keyframes rotateIcon {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes pulseValue {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  /* Style des valeurs et indicateurs */
+  .stats-value {
+    font-size: 32px;
+    font-weight: bold;
+    color: #333333;
+    margin: 1rem 0;
+    transition: all 0.3s ease;
+  }
+
+  .trend-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 14px;
+    transition: all 0.3s ease;
+  }
+
+  .trend-up {
+    color: #34C759;
+  }
+
+  .trend-down {
+    color: #FF3B30;
+  }
+
+  /* Animation fade-in améliorée */
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }/* Styles à ajouter AVANT les media queries */
+   .deck-card {
+     background-color: #FFFFFF;
+     border-radius: 12px;
+     padding: 1.5rem;
+     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+     cursor: pointer;
+     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+     position: relative;
+   }
+
+   .deck-card:hover {
+     transform: translateY(-8px);
+     box-shadow: 0 10px 20px rgba(108, 99, 255, 0.15);
+   }
+
+   .deck-card:active {
+     animation: cardClick 0.4s ease;
+   }
+
+   @keyframes cardClick {
+     0% {
+       transform: scale(1) rotate(0deg);
+     }
+     50% {
+       transform: scale(0.95) rotate(-2deg);
+     }
+     100% {
+       transform: scale(1) rotate(0deg);
+     }
+   }
+
+   .deck-actions {
+     display: flex;
+     gap: 1rem;
+     margin-top: 1rem;
+   }
+
+   .button-secondary {
+     padding: 0.75rem 1rem;
+     background-color: #F5F5F5;
+     border: none;
+     border-radius: 8px;
+     color: #666666;
+     cursor: pointer;
+     display: flex;
+     align-items: center;
+     gap: 0.5rem;
+     transition: all 0.3s ease;
+   }
+
+   .button-primary {
+     padding: 0.75rem 1rem;
+     background-color: #6C63FF;
+     border: none;
+     border-radius: 8px;
+     color: white;
+     cursor: pointer;
+     display: flex;
+     align-items: center;
+     gap: 0.5rem;
+     transition: all 0.3s ease;
+   }
+
+   .delete-btn {
+     background: linear-gradient(145deg, #FF3B30, #FF1F1F);
+     color: white;
+     border: none;
+     border-radius: 8px;
+     padding: 0.75rem;
+     width: 42px;
+     height: 42px;
+     cursor: pointer;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     transition: all 0.3s ease;
+   }
+
+   /* Effets des boutons */
+   .button-secondary:hover,
+   .button-primary:hover {
+     transform: translateY(-2px);
+     box-shadow: 0 4px 12px rgba(108, 99, 255, 0.15);
+   }
+
+   .delete-btn:hover {
+     transform: translateY(-2px);
+     box-shadow: 0 4px 12px rgba(255, 59, 48, 0.3);
+   }
+
+   .button-secondary:active,
+   .button-primary:active,
+   .delete-btn:active {
+     transform: scale(0.95);
+   }
+   /* Stats Cards Animation */
+   .card {
+     background-color: #FFFFFF;
+     border-radius: 12px;
+     padding: 1.5rem;
+     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+     cursor: pointer;
+     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+     position: relative;
+   }
+
+   .card:hover {
+     transform: translateY(-8px);
+     box-shadow: 0 10px 20px rgba(108, 99, 255, 0.15);
+   }
+
+   .card:active {
+     animation: cardClick 0.4s ease;
+   }
+
+   @keyframes cardClick {
+     0% {
+       transform: scale(1) rotate(0deg);
+     }
+     50% {
+       transform: scale(0.95) rotate(-2deg);
+     }
+     100% {
+       transform: scale(1) rotate(0deg);
+     }
+   }
+
+   /* Style spécifique pour les badges */
+   .badge {
+     padding: 0.25rem 0.75rem;
+     border-radius: 20px;
+     font-size: 14px;
+     transition: all 0.3s ease;
+   }
+
+   .badge-warning {
+     background-color: #FFE5CC;
+     color: #FF9500;
+   }
+
+   .badge-success {
+     background-color: #D1F2D9;
+     color: #34C759;
+   }
+
+   /* Animation des icônes et valeurs */
+   .card:hover .card-title i {
+     animation: rotateIcon 0.5s ease;
+   }
+
+   .card:hover .stats-value {
+     animation: pulseValue 0.5s ease;
+   }
+
+   @keyframes rotateIcon {
+     0% {
+       transform: rotate(0deg);
+     }
+     100% {
+       transform: rotate(360deg);
+     }
+   }
+
+   @keyframes pulseValue {
+     0% {
+       transform: scale(1);
+     }
+     50% {
+       transform: scale(1.1);
+     }
+     100% {
+       transform: scale(1);
+     }
+   }
+
+   /* Style des valeurs et indicateurs */
+   .stats-value {
+     font-size: 32px;
+     font-weight: bold;
+     color: #333333;
+     margin: 1rem 0;
+     transition: all 0.3s ease;
+   }
+
+   .trend-indicator {
+     display: flex;
+     align-items: center;
+     gap: 0.5rem;
+     font-size: 14px;
+     transition: all 0.3s ease;
+   }
+
+   .trend-up {
+     color: #34C759;
+   }
+
+   .trend-down {
+     color: #FF3B30;
+   }
+
+   /* Animation fade-in améliorée */
+   .animate-fade-in {
+     animation: fadeIn 0.5s ease-out;
+   }
+
+   @keyframes fadeIn {
+     from {
+       opacity: 0;
+       transform: translateY(20px);
+     }
+     to {
+       opacity: 1;
+       transform: translateY(0);
+     }
+   }
+   .sidebar img {
+     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+     animation: logoPulse 2s ease-in-out infinite;
+   }
+
+   .sidebar img:hover {
+     transform: scale(1.05);
+     filter: brightness(1.2);
+     animation: logoWiggle 0.5s ease-in-out;
+   }
+
+   @keyframes logoPulse {
+     0% {
+       transform: scale(1);
+     }
+     50% {
+       transform: scale(1.02);
+     }
+     100% {
+       transform: scale(1);
+     }
+   }
+
+   @keyframes logoWiggle {
+     0% {
+       transform: rotate(0deg);
+     }
+     25% {
+       transform: rotate(-5deg);
+     }
+     75% {
+       transform: rotate(5deg);
+     }
+     100% {
+       transform: rotate(0deg);
+     }
+   }
+

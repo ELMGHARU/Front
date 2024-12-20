@@ -1,0 +1,286 @@
+/* hero-section.component.css */
+
+/* Container styles */
+.relative {
+  position: relative;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.bg-white {
+  background-color: #ffffff;
+}
+
+/* Background Pattern */
+.absolute {
+  position: absolute;
+}
+
+.inset-0 {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.opacity-10 {
+  opacity: 0.1;
+}
+
+/* Main container */
+.max-w-7xl {
+  max-width: 80rem;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.pt-20 {
+  padding-top: 5rem;
+}
+
+.pb-24 {
+  padding-bottom: 6rem;
+}
+
+/* Main Heading */
+.text-5xl {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.text-gray-900 {
+  color: #111827;
+}
+
+.mb-8 {
+  margin-bottom: 2rem;
+}
+
+/* Subheading */
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.text-gray-600 {
+  color: #4B5563;
+}
+
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+
+.text-yellow-500 {
+  color: #F59E0B;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+/* CTA Buttons */
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.gap-4 {
+  gap: 1rem;
+}
+
+.mb-16 {
+  margin-bottom: 4rem;
+}
+
+/* Primary Button */
+.bg-yellow-500 {
+  background-color: #F59E0B;
+}
+
+.hover\:bg-yellow-600:hover {
+  background-color: #D97706;
+}
+
+.text-black {
+  color: #000000;
+}
+
+.px-8 {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.rounded-full {
+  border-radius: 9999px;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+}
+
+.transition-colors {
+  transition-property: background-color, border-color, color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Secondary Button */
+.bg-white {
+  background-color: #ffffff;
+}
+
+.hover\:bg-gray-50:hover {
+  background-color: #F9FAFB;
+}
+
+.text-gray-900 {
+  color: #111827;
+}
+
+.border-2 {
+  border-width: 2px;
+}
+
+.border-gray-200 {
+  border-color: #E5E7EB;
+}
+
+.hover\:border-yellow-500:hover {
+  border-color: #F59E0B;
+}
+
+/* Trust Indicators */
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.gap-8 {
+  gap: 2rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* Responsive Design */
+@media (min-width: 640px) {
+  .sm\:flex-row {
+    flex-direction: row;
+  }
+
+  .sm\:px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .md\:text-7xl {
+    font-size: 4.5rem;
+    line-height: 1;
+  }
+
+  .md\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:px-8 {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* SVG Icon Styles */
+.h-5 {
+  height: 1.25rem;
+}
+
+.w-5 {
+  width: 1.25rem;
+}
+
+/* Additional Utility Classes */
+.flex {
+  display: flex;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Trust Stats Styles */
+.trust-stat {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #4B5563;
+}
+
+.trust-stat span {
+  font-weight: 600;
+}

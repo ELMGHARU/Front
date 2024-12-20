@@ -1,0 +1,1 @@
+. 2webX6hr6src/app/deck-statistics/deck-statistics.component.html

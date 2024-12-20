@@ -1,0 +1,41 @@
+<!-- deck-list.component.html -->
+<div *ngIf="isLoading" class="loading-spinner">
+  <p>Chargement des decks...</p>
+</div>
+
+<div *ngIf="errorMessage" class="error-message">
+  <p>{{ errorMessage }}</p>
+</div>
+
+<div *ngIf="!isLoading && !errorMessage">
+  <h2>Liste des Decks</h2>
+
+  <table class="deck-table">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nom</th>
+      <th>Nombre de cartes</th>
+      <th>Dernière modification</th>
+      <th>Progression</th>
+      <th>Catégorie</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let deck of decks">
+      <td>{{ deck.id }}</td>
+      <td>{{ deck.name }}</td>
+      <td>{{ deck.cardCount }}</td>
+      <td>{{ deck.lastModified }}</td>
+      <td>{{ deck.progress }}%</td>
+      <td>{{ deck.category }}</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <!-- Pagination si nécessaire -->
+  <div class="pagination">
+    <button (click)="loadDecks(currentPage - 1)" [disabled]="currentPage === 0">Précédent</button>
+    <button (click)="loadDecks(currentPage + 1)" [disabled]="currentPage === totalPages - 1">Suivant</button>
+  </div>
+</div>

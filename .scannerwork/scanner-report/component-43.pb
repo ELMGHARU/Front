@@ -1,0 +1,1 @@
++ 2webX*hr*src/app/deck-list/deck-list.component.html

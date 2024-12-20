@@ -1,0 +1,62 @@
+<div class="container-fluid">
+  <div class="header">
+    <h2 class="mb-0">Mes Paquets</h2>
+    <div class="search-bar">
+      <input
+        type="text"
+        [(ngModel)]="searchQuery"
+        (input)="onSearch()"
+        placeholder="Rechercher un paquet..."
+        class="form-control search-input"
+      >
+    </div>
+  </div>
+
+  <div class="cards-grid">
+    <div class="card deck-card" *ngFor="let deck of decks">
+      <div class="card-header">
+        <h3 class="card-title mb-0">{{ deck.name }}</h3>
+        <button class="delete-btn" (click)="deleteDeck(deck.id)">
+          <i class="fas fa-trash-alt"></i>
+        </button>
+      </div>
+      <div class="card-body">
+        <div class="deck-info">
+          <div class="cards-details">
+            <p class="mb-0">Nombre de cartes : {{ deck.cardCount }}</p>
+            <button class="view-cards-btn btn btn-primary" (click)="loadFlashcardsForDeck(deck.id)">
+              Voir les cartes
+            </button>
+
+          </div>
+        </div>
+
+        <!-- Affichage des flashcards -->
+        <div class="flashcards-list" *ngIf="selectedDeckId === deck.id && selectedDeckFlashcards.length > 0">
+          <div class="flashcard" *ngFor="let card of selectedDeckFlashcards">
+            <div class="flashcard-content">
+              <div class="flashcard-side">
+                <h4>Question :</h4>
+                <p>{{ card.question }}</p>
+              </div>
+              <div class="flashcard-side">
+                <h4>Réponse :</h4>
+                <p>{{ card.answer }}</p>
+              </div>
+            </div>
+            <div class="flashcard-meta">
+              <span class="difficulty">Difficulté : {{ card.difficultyLevel }}/5</span>
+              <span class="review-count" *ngIf="card.reviewCount">
+                Révisions : {{ card.reviewCount }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="no-decks" *ngIf="decks.length === 0">
+    <p class="mb-0">Aucun paquet trouvé.</p>
+  </div>
+</div>

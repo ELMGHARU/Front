@@ -1,0 +1,11 @@
+×
+
+typescriptS3863µ'C:\Users\ASUS\Desktop\memoriaproject\projet-multiplateforme-e2425g5_1\front_end\memoria_front\angular-starter\node_modules\@angular\core\fesm2022\core.mjs' imported multiple times. 2 *×
+
+typescriptS3863µ'C:\Users\ASUS\Desktop\memoriaproject\projet-multiplateforme-e2425g5_1\front_end\memoria_front\angular-starter\node_modules\@angular\core\fesm2022\core.mjs' imported multiple times. 2
+
+ &n
+
+typescriptS2933MMember 'authService: AuthService' is never reassigned; mark it as `readonly`. 2 !d
+
+typescriptS2933CMember 'router: Router' is never reassigned; mark it as `readonly`. 20 >

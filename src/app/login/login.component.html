@@ -1,0 +1,81 @@
+<div class="login-container">
+  <div class="login-box">
+    <h1>{{ isResetMode ? 'Réinitialisation du mot de passe' : 'Connexion' }}</h1>
+
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <input
+          type="email"
+          [(ngModel)]="email"
+          name="email"
+          placeholder="E-mail:"
+          required
+          [disabled]="isLoading"
+          class="form-control"
+        />
+      </div>
+
+      <!-- Affichage conditionnel selon le mode -->
+      <div *ngIf="!isResetMode" class="form-group">
+        <input
+          type="password"
+          [(ngModel)]="password"
+          name="password"
+          placeholder="Mot de passe"
+          required
+          [disabled]="isLoading"
+          class="form-control"
+        />
+      </div>
+
+      <!-- Champs pour la réinitialisation du mot de passe -->
+      <div *ngIf="isResetMode">
+        <div class="form-group">
+          <input
+            type="password"
+            [(ngModel)]="oldPassword"
+            name="oldPassword"
+            placeholder="Ancien mot de passe"
+            required
+            [disabled]="isLoading"
+            class="form-control"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="password"
+            [(ngModel)]="newPassword"
+            name="newPassword"
+            placeholder="Nouveau mot de passe"
+            required
+            [disabled]="isLoading"
+            class="form-control"
+          />
+        </div>
+      </div>
+
+      <div *ngIf="errorMessage" class="alert alert-danger">
+        {{ errorMessage }}
+      </div>
+
+      <button
+        type="submit"
+        class="login-btn"
+        [disabled]="isLoading">
+        {{ isLoading ? 'Chargement...' : (isResetMode ? 'Réinitialiser' : 'Se connecter') }}
+      </button>
+
+      <div class="register-text">
+        <div class="forgot-password">
+          <a href="javascript:void(0)" (click)="toggleResetMode()" class="register-link">
+            {{ isResetMode ? 'Retour à la connexion' : 'Mot de passe oublié?' }}
+          </a>
+        </div>
+        <div *ngIf="!isResetMode">
+          Vous n'êtes pas encore inscrit ?
+          <a routerLink="/register" class="register-link">S'inscrire</a>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

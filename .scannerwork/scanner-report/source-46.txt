@@ -1,0 +1,53 @@
+<div class="deck-statistics">
+  <h2>Statistiques des decks</h2>
+
+  <div class="deck-list">
+    <h3>Liste des decks</h3>
+    <ul>
+      <li *ngFor="let deck of decks" (click)="selectDeck(deck)">
+        {{ deck.name }} ({{ deck.cardCount }} cartes)
+      </li>
+    </ul>
+  </div>
+
+  <div class="deck-details" *ngIf="selectedDeck">
+    <h3>Détails du deck : {{ selectedDeck?.name }}</h3>
+    <p>Identifiant : {{ selectedDeck?.id }}</p>
+
+
+    <div class="statistics">
+      <h4>Statistiques du deck</h4>
+      <p>Cartes maitrisées : {{ statistics.cardsToReview }}</p>
+      <p>Progression hebdomadaire : {{ statistics.weeklyProgress }}%</p>
+      <p>Progression mensuelle : {{ statistics.monthlyProgress }}%</p>
+    </div>
+
+    <div class="flashcard-list">
+      <h4>Liste des flashcards</h4>
+      <table>
+        <thead>
+        <tr>
+          <th>Question</th>
+          <th>Réponse</th>
+          <th>Niveau de difficulté</th>
+          <th>Dérniére révision</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let flashcard of flashcards">
+          <td>{{ flashcard.question }}</td>
+          <td>{{ flashcard.answer }}</td>
+          <td>{{ flashcard.difficultyLevel }}</td>
+          <td>{{ flashcard.nextReviewDate | date:'dd/MM/yyyy' }}</td>
+
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="no-deck-selected" *ngIf="!selectedDeck">
+    <p>Sélectionnez un deck pour afficher les détails et les statistiques.</p>
+  </div>
+</div>
