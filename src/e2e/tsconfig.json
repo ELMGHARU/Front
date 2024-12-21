@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "ES2016",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "outDir": "../dist/out-tsc-e2e",
+    "strict": false,
+    "noImplicitAny": false,
+    "types": [
+      "jasmine",
+      "node",
+      "selenium-webdriver"
+    ]
+  },
+  "include": [
+    "**/*.ts"
+  ]
+}
