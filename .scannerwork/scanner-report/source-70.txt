@@ -3,13 +3,12 @@ import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router";
 
 @Component({
-  selector: 'app-hero',
-  standalone: true,
-  imports: [
-    CommonModule,
-    RouterModule
-  ],
-  template: `
+    selector: 'app-hero',
+    imports: [
+        CommonModule,
+        RouterModule
+    ],
+    template: `
     <section class="bg-[#2B3648] pt-32 pb-20 relative overflow-hidden">
       <div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
         <!-- Left Content -->

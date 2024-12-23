@@ -1,1 +1,1 @@
-~ (2tsXmhr'src/app/header/header.component.spec.ts
+~ (2tsXhr3src/app/footer-links/footer-links.component.spec.ts

@@ -6,15 +6,14 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
-  imports: [
-    FormsModule,
-    CommonModule,
-    RouterModule
-  ],
-  standalone: true,
+    selector: 'app-login',
+    templateUrl: './login.component.html',
+    styleUrls: ['./login.component.css'],
+    imports: [
+        FormsModule,
+        CommonModule,
+        RouterModule
+    ]
 })
 export class LoginComponent {
   email: string = '';

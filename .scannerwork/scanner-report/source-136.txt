@@ -1,108 +1,100 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { RegisterComponent } from './register.component';
+import { PrivacyPolicyComponent } from './privacy-policy.component';
 import { RouterTestingModule } from '@angular/router/testing';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { AuthService } from '../auth.service';
-import { FormsModule } from '@angular/forms';
-import { of, throwError } from 'rxjs';
 import { Router } from '@angular/router';
+import { By } from '@angular/platform-browser';
 
-describe('RegisterComponent', () => {
-  let component: RegisterComponent;
-  let fixture: ComponentFixture<RegisterComponent>;
-  let authService: jasmine.SpyObj<AuthService>;
+describe('PrivacyPolicyComponent', () => {
+  let component: PrivacyPolicyComponent;
+  let fixture: ComponentFixture<PrivacyPolicyComponent>;
   let router: Router;
 
   beforeEach(async () => {
-    const authServiceSpy = jasmine.createSpyObj('AuthService', [
-      'register',
-      'validateUsername',
-      'validatePassword',
-      'validateEmail'
-    ]);
+    spyOn(window, 'close');
 
     await TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule,
-        HttpClientTestingModule,
-        FormsModule,
-        RegisterComponent
-      ],
-      providers: [
-        { provide: AuthService, useValue: authServiceSpy }
+        PrivacyPolicyComponent,
+        RouterTestingModule.withRoutes([])
       ]
     }).compileComponents();
 
-    authService = TestBed.inject(AuthService) as jasmine.SpyObj<AuthService>;
     router = TestBed.inject(Router);
-  });
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(RegisterComponent);
+    fixture = TestBed.createComponent(PrivacyPolicyComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+  });
+
+  afterEach(() => {
+    localStorage.clear();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
 
-  describe('Form Validation', () => {
-    it('should fail validation if username is empty', () => {
-      // Configurer les validations
-      authService.validateUsername.and.returnValue(true);
-      authService.validatePassword.and.returnValue(true);
-      authService.validateEmail.and.returnValue(true);
+  it('should contain all required sections', () => {
+    const sections = fixture.debugElement.queryAll(By.css('section'));
+    expect(sections.length).toBe(3);
 
-      component.username = '';
-      component.password = 'validPassword';
-      component.email = 'test@test.com';
-
-      component.onSubmit();
-
-      expect(component.errorMessage).toContain('Veuillez remplir tous les champs');
-    });
+    const headings = fixture.debugElement.queryAll(By.css('h2'));
+    expect(headings[0].nativeElement.textContent).toContain('Introduction');
+    expect(headings[1].nativeElement.textContent).toContain('Collecte');
+    expect(headings[2].nativeElement.textContent).toContain('Utilisation');
   });
 
-  describe('Registration Process', () => {
-    it('should call register service method on successful validation', () => {
-      // Configurer les validations
-      authService.validateUsername.and.returnValue(true);
-      authService.validatePassword.and.returnValue(true);
-      authService.validateEmail.and.returnValue(true);
+  it('should have working accept button', () => {
+    const acceptButton = fixture.debugElement.query(By.css('.accept-button'));
+    acceptButton.triggerEventHandler('click', null);
+    expect(localStorage.getItem('privacy-accepted')).toBe('true');
+  });
 
-      // Fournir un mock de réponse complet
-      authService.register.and.returnValue(of({
-        token: 'fake-token',
-        refreshToken: 'fake-refresh-token'
-      }));
+  it('should have working close button with router link', () => {
+    const closeButton = fixture.debugElement.query(By.css('.close-button'));
+    expect(closeButton.attributes['routerLink']).toBe('/dashboard');
+  });
 
-      component.username = 'testuser';
-      component.password = 'password123';
-      component.email = 'test@test.com';
+  it('should set localStorage when accepting policy', () => {
+    component.acceptPolicy();
+    expect(localStorage.getItem('privacy-accepted')).toBe('true');
+    expect(window.close).toHaveBeenCalled();
+  });
 
-      component.onSubmit();
+  it('should call window.close when closing policy', () => {
+    component.closePolicy();
+    expect(window.close).toHaveBeenCalled();
+  });
 
-      expect(authService.register).toHaveBeenCalledWith(
-        'testuser',
-        'password123',
-        'test@test.com'
-      );
-    });
+  it('should render the last update date', () => {
+    const lastUpdate = fixture.debugElement.query(By.css('.last-update'));
+    expect(lastUpdate.nativeElement.textContent).toContain('25 novembre 2024');
+  });
 
-    it('should handle registration error with conflict status', () => {
-      authService.validateUsername.and.returnValue(true);
-      authService.validatePassword.and.returnValue(true);
-      authService.validateEmail.and.returnValue(true);
-      authService.register.and.returnValue(throwError(() => ({ status: 409 })));
+  it('should render all list items in collecte section', () => {
+    const collecteSection = fixture.debugElement.query(By.css('#collecte'));
+    const listItems = collecteSection.queryAll(By.css('li'));
+    expect(listItems.length).toBe(4);
+  });
 
-      component.username = 'testuser';
-      component.password = 'password123';
-      component.email = 'test@test.com';
+  it('should render all list items in utilisation section', () => {
+    const utilisationSection = fixture.debugElement.query(By.css('#utilisation'));
+    const listItems = utilisationSection.queryAll(By.css('li'));
+    expect(listItems.length).toBe(5);
+  });
 
-      component.onSubmit();
+  it('should have responsive container', () => {
+    const container = fixture.debugElement.query(By.css('.privacy-container'));
+    expect(container).toBeTruthy();
+    // Vérifier la présence de la classe plutôt que le style calculé
+    expect(container.classes['privacy-container']).toBeTrue();
+  });
 
-      expect(component.errorMessage).toBe('L\'email est déjà utilisé');
-    });
+  // Test supplémentaire pour la structure responsive
+  it('should have responsive footer buttons', () => {
+    const footer = fixture.debugElement.query(By.css('.privacy-footer'));
+    const buttons = footer.queryAll(By.css('button'));
+    expect(buttons.length).toBe(2);
+    expect(buttons[0].classes['accept-button']).toBeTrue();
+    expect(buttons[1].classes['close-button']).toBeTrue();
   });
 });

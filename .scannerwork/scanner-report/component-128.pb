@@ -1,1 +1,1 @@
-€ (2tsX>hr#src/app/hero/hero.component.spec.ts
+€ (2tsXhr-src/app/help-page/help-page.component.spec.ts

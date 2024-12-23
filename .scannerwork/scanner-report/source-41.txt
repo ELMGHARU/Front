@@ -6,16 +6,14 @@ import { Router } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
 @Component({
-  selector: 'app-deck-creation',
-  templateUrl: './deck-creation.component.html',
-  styleUrls: ['./deck-creation.component.css'],
-  standalone: true,
-  imports: [
-    FormsModule,
-    CommonModule,
+    selector: 'app-deck-creation',
+    templateUrl: './deck-creation.component.html',
+    styleUrls: ['./deck-creation.component.css'],
+    imports: [
+        FormsModule,
+        CommonModule,
         HttpClientModule
-
-  ]
+    ]
 })
 export class DeckCreationComponent {
   showNewDeckModal = false;

@@ -5,18 +5,18 @@
   <div class="mb-6">
     <h2 class="text-xl font-semibold mb-2">Decks</h2>
     <button class="bg-blue-500 text-white px-4 py-2 mb-4" (click)="createDeck()">Créer un Deck</button>
-    <div *ngIf="decks && decks.length > 0">
+    <div >
       <ul>
-        <li *ngFor="let deck of decks" class="mb-2 p-4 border rounded">
+        <li  class="mb-2 p-4 border rounded">
           <div class="flex justify-between items-center">
-            <span class="font-semibold">{{ deck.name }}</span>
-            <button (click)="deleteDeck(deck.id)" class="bg-red-500 text-white px-4 py-2 rounded">Supprimer</button>
+            <span class="font-semibold"></span>
+            <button  class="bg-red-500 text-white px-4 py-2 rounded">Supprimer</button>
           </div>
-          <div class="text-sm text-gray-600">Card Count: {{ deck.cardCount }}</div>
+          <div class="text-sm text-gray-600">Card Count:</div>
         </li>
       </ul>
     </div>
-    <div *ngIf="decks && decks.length === 0" class="text-gray-500">
+    <div  class="text-gray-500">
       Aucune deck disponible.
     </div>
   </div>
@@ -24,17 +24,15 @@
   <!-- Sessions d'Étude -->
   <div class="mb-6">
     <h2 class="text-xl font-semibold mb-2">Sessions d'Étude</h2>
-    <div *ngIf="studySessions && studySessions.length > 0">
+    <div>
       <ul>
-        <li *ngFor="let session of studySessions" class="mb-2 p-4 border rounded">
+        <li  class="mb-2 p-4 border rounded">
           <div class="flex justify-between items-center">
-            <span class="font-semibold">Session {{ session.id }}</span>
-            <span class="text-sm text-gray-600">{{ session.startTime }} - {{ session.endTime }}</span>
           </div>
         </li>
       </ul>
     </div>
-    <div *ngIf="studySessions && studySessions.length === 0" class="text-gray-500">
+    <div  class="text-gray-500">
       Aucune session d'étude en cours.
     </div>
   </div>

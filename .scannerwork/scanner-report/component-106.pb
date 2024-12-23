@@ -1,1 +1,1 @@
-j (2tsXhrsrc/app/api.service.spec.ts
+j (2tsX hr+src/app/add-card/add-card.component.spec.ts

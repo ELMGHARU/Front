@@ -1,31 +1,44 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { AddCardComponent } from './add-card.component';
-import { RouterTestingModule } from '@angular/router/testing';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { DeckService } from '../deck.service';
+import { Builder, WebDriver } from 'selenium-webdriver';
+import { Options } from 'selenium-webdriver/chrome';
 
-describe('AddCardComponent', () => {
-  let component: AddCardComponent;
-  let fixture: ComponentFixture<AddCardComponent>;
-  let deckService: DeckService;
+export class SeleniumConfig {
+  private driver: WebDriver;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule,
-        HttpClientTestingModule,
-        AddCardComponent
-      ],
-      providers: [DeckService]
-    }).compileComponents();
+  // Méthode d'initialisation pour configurer et créer l'instance de WebDriver
+  async setup() {
+    try {
+      const chromeOptions = new Options();
 
-    fixture = TestBed.createComponent(AddCardComponent);
-    component = fixture.componentInstance;
-    deckService = TestBed.inject(DeckService);
-    fixture.detectChanges();
-  });
+      // Optionnel : Configuration du navigateur pour le mode sans tête (headless)
+      chromeOptions.addArguments('--headless');  // Lancer Chrome sans interface graphique
+      chromeOptions.addArguments('--disable-gpu');  // Désactiver le GPU (utile pour certains environnements sans affichage)
+      chromeOptions.addArguments('--window-size=1920x1080');  // Spécifier la taille de la fenêtre du navigateur
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+      // Création de l'instance WebDriver
+      this.driver = await new Builder()
+        .forBrowser('chrome')
+        .setChromeOptions(chromeOptions)
+        .build();
+
+      console.log('Le WebDriver a été initialisé avec succès');
+    } catch (error) {
+      console.error('Erreur lors de la configuration du WebDriver:', error);
+      throw error;  // Relancer l'erreur pour l'attraper dans les tests
+    }
+  }
+
+  // Méthode pour fermer proprement le driver après utilisation
+  async tearDown() {
+    try {
+      await this.driver.quit();
+      console.log('Le WebDriver a été correctement fermé');
+    } catch (error) {
+      console.error('Erreur lors de la fermeture du WebDriver:', error);
+    }
+  }
+
+  // Getter pour obtenir l'instance du driver
+  getDriver() {
+    return this.driver;
+  }
+}

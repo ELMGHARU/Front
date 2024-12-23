@@ -1,6 +1,6 @@
 {
   "/api": {
-    "target": "https://4eab-196-206-80-37.ngrok-free.app/",
+    "target": "https://aware-willingly-monkfish.ngrok-free.app/",
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug"

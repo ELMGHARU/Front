@@ -1,1 +1,1 @@
-= 2tsXhr.src/app/footer-links/footer-links.component.ts
+= 2tsXhr.src/app/footer-links/footer-links.component.ts

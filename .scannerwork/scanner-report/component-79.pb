@@ -1,1 +1,1 @@
-O 2tsXhr8src/app/language-switcher/language-switcher.component.ts
+O 2tsXhr8src/app/language-switcher/language-switcher.component.ts

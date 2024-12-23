@@ -1,1 +1,1 @@
-I 2tsXZhr.src/app/hero-section/hero-section.component.ts
+I 2tsXYhr.src/app/hero-section/hero-section.component.ts

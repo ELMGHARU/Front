@@ -1,1 +1,1 @@
- 2tsXähr/src/app/components/setting/setting.component.ts
+ 2tsXãhr/src/app/components/setting/setting.component.ts

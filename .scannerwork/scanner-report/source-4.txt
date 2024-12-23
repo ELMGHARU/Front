@@ -6,14 +6,13 @@ import { CommonModule } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-add-card',
-  templateUrl: './add-card.component.html',
-  styleUrls: ['./add-card.component.css'],
-  standalone: true,
-  imports: [
-    FormsModule,
-    CommonModule
-  ]
+    selector: 'app-add-card',
+    templateUrl: './add-card.component.html',
+    styleUrls: ['./add-card.component.css'],
+    imports: [
+        FormsModule,
+        CommonModule
+    ]
 })
 export class AddCardComponent implements OnInit {
   flashcard: CreateFlashcardRequest = {

@@ -5,10 +5,9 @@ import { RouterLink } from '@angular/router';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-library',
-  standalone: true,
-  imports: [CommonModule, FormsModule, RouterLink],
-  template: `
+    selector: 'app-library',
+    imports: [CommonModule, FormsModule, RouterLink],
+    template: `
    <div class="layout-container">
      <!-- Barre de navigation à gauche -->
       <nav class="sidebar">
@@ -131,7 +130,7 @@ import { Router } from '@angular/router';
     </div>
   </div>
   `,
-  styles: [`
+    styles: [`
     /* Layout de base */
     .sidebar {
         width: 260px;

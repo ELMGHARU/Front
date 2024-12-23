@@ -1,1 +1,1 @@
- (2tsX*hr3src/app/hero-section/hero-section.component.spec.ts
+ (2tsX>hr#src/app/hero/hero.component.spec.ts

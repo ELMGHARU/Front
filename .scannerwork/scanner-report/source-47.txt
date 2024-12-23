@@ -11,12 +11,11 @@ type CustomFlashcard = Flashcard & {
 };
 
 @Component({
-  selector: 'app-deck-statistics',
-  templateUrl: './deck-statistics.component.html',
-  styleUrls: ['./deck-statistics.component.css'],
-  standalone: true,
-  imports: [CommonModule, FormsModule],
-  providers: [DatePipe]
+    selector: 'app-deck-statistics',
+    templateUrl: './deck-statistics.component.html',
+    styleUrls: ['./deck-statistics.component.css'],
+    imports: [CommonModule, FormsModule],
+    providers: [DatePipe]
 })
 export class DeckStatisticsComponent implements OnInit {
   decks: Deck[] = [];

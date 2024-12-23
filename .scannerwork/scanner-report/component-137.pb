@@ -1,1 +1,1 @@
-‰ (2tsX(hr+src/app/services/cloudinary.service.spec.ts
+‰ (2tsXmhr+src/app/register/register.component.spec.ts

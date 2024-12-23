@@ -5,14 +5,13 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-dashboard-admin',
-  templateUrl: './dashboard-admin.component.html',
-  styleUrls: ['./dashboard-admin.component.css'],
-  standalone: true,
-  imports: [
-    CommonModule,
-    RouterModule
-  ]
+    selector: 'app-dashboard-admin',
+    templateUrl: './dashboard-admin.component.html',
+    styleUrls: ['./dashboard-admin.component.css'],
+    imports: [
+        CommonModule,
+        RouterModule
+    ]
 })
 export class DashboardAdminComponent implements OnInit {
   decks: any[] = [];

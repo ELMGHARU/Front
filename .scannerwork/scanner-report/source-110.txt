@@ -1,40 +1,27 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { DeckCreationDashboardComponent } from './deck-creation-dashboard.component';
+import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { HttpClient } from '@angular/common/http';
-import { DeckService } from '../../deck.service';
-import { of } from 'rxjs';
+import { AuthService } from './auth.service';
 
-describe('DeckCreationDashboardComponent', () => {
-  let component: DeckCreationDashboardComponent;
-  let fixture: ComponentFixture<DeckCreationDashboardComponent>;
-  let httpClient: HttpClient;
-  let httpTestingController: HttpTestingController;
-  let deckService: DeckService;
+describe('AuthService', () => {
+  let service: AuthService;
+  let httpMock: HttpTestingController;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [DeckCreationDashboardComponent],
       imports: [HttpClientTestingModule],
-      providers: [
-        DeckService
-      ]
+      providers: [AuthService]
     });
-
-    fixture = TestBed.createComponent(DeckCreationDashboardComponent);
-    component = fixture.componentInstance;
-    httpClient = TestBed.inject(HttpClient);
-    httpTestingController = TestBed.inject(HttpTestingController);
-    deckService = TestBed.inject(DeckService);
+    service = TestBed.inject(AuthService);
+    httpMock = TestBed.inject(HttpTestingController);
   });
 
-  it('should create the component', () => {
-    expect(component).toBeTruthy();
+  afterEach(() => {
+    httpMock.verify();
   });
 
-  it('should call the getDecks method from DeckService', () => {
-    spyOn(deckService, 'getDecks').and.returnValue(of({ content: [], totalElements: 0, totalPages: 0, number: 0 }));
-    component.ngOnInit();
-    expect(deckService.getDecks).toHaveBeenCalled();
+  it('should be created', () => {
+    expect(service).toBeTruthy();
   });
+
+  // Ajoutez ici d'autres tests pour votre AuthService
 });

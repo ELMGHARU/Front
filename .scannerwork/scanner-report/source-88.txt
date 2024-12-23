@@ -4,10 +4,9 @@ import { Router } from '@angular/router';
 import { DeckService } from '../deck.service';
 
 @Component({
-  selector: 'app-practice',
-  standalone: true,
-  imports: [CommonModule],
-  template: `
+    selector: 'app-practice',
+    imports: [CommonModule],
+    template: `
     <div class="practice-page">
       <!-- Header -->
       <div class="header">
@@ -97,7 +96,7 @@ import { DeckService } from '../deck.service';
       </div>
     </div>
   `,
-  styles: [`
+    styles: [`
     .practice-page {
       min-height: 100vh;
       background-color: #1E2329;

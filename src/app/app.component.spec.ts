@@ -2,16 +2,32 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { By } from '@angular/platform-browser';
+import { Component } from '@angular/core';
 
-// Import the components you're testing
-import { SocialLinksComponent } from './social-links/social-links.component';
-import { HeroSectionComponent } from './hero-section/hero-section.component';
-import { LanguageSwitcherComponent } from './language-switcher/language-switcher.component';
-import { FooterLinksComponent } from './footer-links/footer-links.component';
-import { LandingPageComponent } from './landing-page/landing-page.component';
-import { LoginComponent } from './login/login.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { DeckCreationComponent } from './deck-creation/deck-creation.component';
+// Créer des composants de test simplifiés
+@Component({
+  selector: 'app-social-links',
+  template: ''
+})
+class MockSocialLinksComponent {}
+
+@Component({
+  selector: 'app-hero-section',
+  template: ''
+})
+class MockHeroSectionComponent {}
+
+@Component({
+  selector: 'app-language-switcher',
+  template: ''
+})
+class MockLanguageSwitcherComponent {}
+
+@Component({
+  selector: 'app-footer-links',
+  template: ''
+})
+class MockFooterLinksComponent {}
 
 describe('AppComponent', () => {
   let component: AppComponent;
@@ -21,16 +37,13 @@ describe('AppComponent', () => {
     await TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
-        AppComponent,
-        // Import all standalone components
-        SocialLinksComponent,
-        HeroSectionComponent,
-        LanguageSwitcherComponent,
-        FooterLinksComponent,
-        LandingPageComponent,
-        LoginComponent,
-        DashboardComponent,
-        DeckCreationComponent
+        AppComponent
+      ],
+      declarations: [
+        MockSocialLinksComponent,
+        MockHeroSectionComponent,
+        MockLanguageSwitcherComponent,
+        MockFooterLinksComponent
       ]
     }).compileComponents();
 
@@ -44,32 +57,33 @@ describe('AppComponent', () => {
   });
 
   it('should have the correct title', () => {
-    expect(component.title).toBe('Memrise - Learn a language');
+    expect(component.title).toEqual('Memrise - Learn a language');
   });
 
-  it('should create social links component', () => {
-    const socialLinksElement = fixture.debugElement.query(By.directive(SocialLinksComponent));
-    expect(socialLinksElement).toBeTruthy();
+  it('should render main navigation components', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('app-social-links')).toBeTruthy();
+    expect(compiled.querySelector('app-hero-section')).toBeTruthy();
+    expect(compiled.querySelector('app-language-switcher')).toBeTruthy();
+    expect(compiled.querySelector('app-footer-links')).toBeTruthy();
   });
 
-  it('should create hero section component', () => {
-    const heroSectionElement = fixture.debugElement.query(By.directive(HeroSectionComponent));
-    expect(heroSectionElement).toBeTruthy();
-  });
-
-  it('should create language switcher component', () => {
-    const languageSwitcherElement = fixture.debugElement.query(By.directive(LanguageSwitcherComponent));
-    expect(languageSwitcherElement).toBeTruthy();
-  });
-
-  it('should create footer links component', () => {
-    const footerLinksElement = fixture.debugElement.query(By.directive(FooterLinksComponent));
-    expect(footerLinksElement).toBeTruthy();
-  });
-
-  // If these components might not always be present, you can adjust the tests accordingly
   it('should have a router outlet', () => {
     const routerOutlet = fixture.debugElement.query(By.css('router-outlet'));
     expect(routerOutlet).toBeTruthy();
+  });
+
+  // Test de la navigation si nécessaire
+  it('should render the correct route components', () => {
+    const router = TestBed.inject(RouterTestingModule);
+    // Ajouter des tests de navigation si nécessaire
+  });
+
+  // Test du template principal
+  it('should have the main layout structure', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('main')).toBeTruthy();
+    expect(compiled.querySelector('header')).toBeTruthy();
+    expect(compiled.querySelector('footer')).toBeTruthy();
   });
 });

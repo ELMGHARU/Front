@@ -1,105 +1,89 @@
-import { TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { AppComponent } from './app.component';
 import { RouterTestingModule } from '@angular/router/testing';
-import { Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { AuthService } from './auth.service';
-import { AuthGuard, authGuard } from './auth.guard';
+import { By } from '@angular/platform-browser';
+import { Component } from '@angular/core';
 
-describe('AuthGuard', () => {
-  let guard: AuthGuard;
-  let authService: AuthService;
-  let router: Router;
+// Créer des composants de test simplifiés
+@Component({
+  selector: 'app-social-links',
+  template: ''
+})
+class MockSocialLinksComponent {}
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      imports: [RouterTestingModule],
-      providers: [
-        AuthGuard,
-        {
-          provide: AuthService,
-          useValue: {
-            isLoggedIn: () => false
-          }
-        }
+@Component({
+  selector: 'app-hero-section',
+  template: ''
+})
+class MockHeroSectionComponent {}
+
+@Component({
+  selector: 'app-language-switcher',
+  template: ''
+})
+class MockLanguageSwitcherComponent {}
+
+@Component({
+  selector: 'app-footer-links',
+  template: ''
+})
+class MockFooterLinksComponent {}
+
+describe('AppComponent', () => {
+  let component: AppComponent;
+  let fixture: ComponentFixture<AppComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [
+        RouterTestingModule,
+        AppComponent
+      ],
+      declarations: [
+        MockSocialLinksComponent,
+        MockHeroSectionComponent,
+        MockLanguageSwitcherComponent,
+        MockFooterLinksComponent
       ]
-    });
+    }).compileComponents();
 
-    guard = TestBed.inject(AuthGuard);
-    authService = TestBed.inject(AuthService);
-    router = TestBed.inject(Router);
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
   });
 
-  it('should be created', () => {
-    expect(guard).toBeTruthy();
+  it('should create the app', () => {
+    expect(component).toBeTruthy();
   });
 
-  it('should redirect to login when not authenticated', () => {
-    const navigateSpy = spyOn(router, 'navigate');
-    const mockSnapshot = { url: '/test' } as RouterStateSnapshot;
-
-    const result = guard.canActivate({} as ActivatedRouteSnapshot, mockSnapshot);
-
-    expect(result).toBeFalsy();
-    expect(navigateSpy).toHaveBeenCalledWith(['/login'], {
-      queryParams: { returnUrl: mockSnapshot.url }
-    });
+  it('should have the correct title', () => {
+    expect(component.title).toEqual('Memrise - Learn a language');
   });
 
-  it('should allow access when authenticated', () => {
-    spyOn(authService, 'isLoggedIn').and.returnValue(true);
-    const mockSnapshot = {} as RouterStateSnapshot;
-
-    const result = guard.canActivate({} as ActivatedRouteSnapshot, mockSnapshot);
-
-    expect(result).toBeTruthy();
-  });
-});
-
-describe('authGuard function', () => {
-  let authService: AuthService;
-  let router: Router;
-
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      imports: [RouterTestingModule],
-      providers: [
-        {
-          provide: AuthService,
-          useValue: {
-            isLoggedIn: () => false
-          }
-        }
-      ]
-    });
-
-    authService = TestBed.inject(AuthService);
-    router = TestBed.inject(Router);
+  it('should render main navigation components', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('app-social-links')).toBeTruthy();
+    expect(compiled.querySelector('app-hero-section')).toBeTruthy();
+    expect(compiled.querySelector('app-language-switcher')).toBeTruthy();
+    expect(compiled.querySelector('app-footer-links')).toBeTruthy();
   });
 
-  it('should redirect to login when not authenticated', () => {
-    const routerSpy = spyOn(router, 'createUrlTree').and.callThrough();
-
-    TestBed.runInInjectionContext(() => {
-      const result = authGuard(
-        {} as ActivatedRouteSnapshot,
-        { url: '/test' } as RouterStateSnapshot
-      );
-
-      expect(routerSpy).toHaveBeenCalledWith(['/login'], {
-        queryParams: { returnUrl: '/test' }
-      });
-    });
+  it('should have a router outlet', () => {
+    const routerOutlet = fixture.debugElement.query(By.css('router-outlet'));
+    expect(routerOutlet).toBeTruthy();
   });
 
-  it('should allow access when authenticated', () => {
-    spyOn(authService, 'isLoggedIn').and.returnValue(true);
+  // Test de la navigation si nécessaire
+  it('should render the correct route components', () => {
+    const router = TestBed.inject(RouterTestingModule);
+    // Ajouter des tests de navigation si nécessaire
+  });
 
-    TestBed.runInInjectionContext(() => {
-      const result = authGuard(
-        {} as ActivatedRouteSnapshot,
-        {} as RouterStateSnapshot
-      );
-
-      expect(result).toBeTruthy();
-    });
+  // Test du template principal
+  it('should have the main layout structure', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('main')).toBeTruthy();
+    expect(compiled.querySelector('header')).toBeTruthy();
+    expect(compiled.querySelector('footer')).toBeTruthy();
   });
 });

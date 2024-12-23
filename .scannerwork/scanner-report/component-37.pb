@@ -1,1 +1,1 @@
-% 2webX*hr6src/app/dashboard-admin/dashboard-admin.component.html
+% 2webX(hr6src/app/dashboard-admin/dashboard-admin.component.html

@@ -1,1 +1,1 @@
-‚ (2tsXthr3src/app/landing-page/landing-page.component.spec.ts
+‚ (2tsX*hr3src/app/hero-section/hero-section.component.spec.ts

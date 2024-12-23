@@ -47,7 +47,7 @@ Project scanner properties:
   - sonar.exclusions=**/node_modules/**,**/*.spec.ts,**/dist/**,**/coverage/**,**/*.java
   - sonar.host.url=https://sonarcloud.io
   - sonar.javascript.coveragePlugin=lcov
-  - sonar.javascript.lcov.reportPaths=coverage/angular-starter/lcov.info
+  - sonar.javascript.lcov.reportPaths=coverage/lcov.info
   - sonar.log.level=DEBUG
   - sonar.login=******
   - sonar.organization=memoria-app
@@ -58,7 +58,7 @@ Project scanner properties:
   - sonar.scanner.app=ScannerCLI
   - sonar.scanner.appVersion=6.2.1.4610
   - sonar.scanner.arch=amd64
-  - sonar.scanner.bootstrapStartTime=1734702966640
+  - sonar.scanner.bootstrapStartTime=1734959252030
   - sonar.scanner.home=C:\Users\ASUS\Downloads\sonar-scanner-cli-6.2.1.4610-windows-x64\sonar-scanner-6.2.1.4610-windows-x64\bin\..
   - sonar.scanner.os=windows
   - sonar.scanner.wasEngineCacheHit=true
@@ -67,7 +67,8 @@ Project scanner properties:
   - sonar.sources=src
   - sonar.test.inclusions=**/*.spec.ts
   - sonar.tests=src
-  - sonar.typescript.lcov.reportPaths=coverage/angular-starter/lcov.info
+  - sonar.token=******
+  - sonar.typescript.lcov.reportPaths=coverage/lcov.info
   - sonar.typescript.tsconfigPath=tsconfig.json
   - sonar.verbose=true
   - sonar.working.directory=C:\Users\ASUS\Desktop\memoriaproject\projet-multiplateforme-e2425g5_1\front_end\memoria_front\angular-starter\.scannerwork

@@ -1,1 +1,1 @@
-i (2tsX hr+src/app/add-card/add-card.component.spec.ts
+i 2tsX-hrsrc/tests/selenium-config.ts

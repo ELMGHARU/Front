@@ -1,1 +1,1 @@
-ˆ (2tsXmhr+src/app/register/register.component.spec.ts
+ˆ (2tsXehr7src/app/privacy-policy/privacy-policy.component.spec.ts

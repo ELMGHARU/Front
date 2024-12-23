@@ -5,11 +5,10 @@ import { AuthService } from '../../auth.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-settings',
-  standalone: true,
-  imports: [CommonModule, RouterLink],
-  providers: [AuthService],
-  template: `
+    selector: 'app-settings',
+    imports: [CommonModule, RouterLink],
+    providers: [AuthService],
+    template: `
    <div class="layout-container">
        <!-- Barre de navigation à gauche -->
        <nav class="sidebar">
