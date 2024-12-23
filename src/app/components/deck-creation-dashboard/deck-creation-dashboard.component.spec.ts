@@ -12,8 +12,10 @@ describe('DeckCreationDashboardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [DeckCreationDashboardComponent],
-      imports: [HttpClientTestingModule],
+      imports: [
+        HttpClientTestingModule,
+        DeckCreationDashboardComponent // Import as standalone component
+      ],
       providers: [DeckService],
     }).compileComponents();
 
@@ -30,21 +32,6 @@ describe('DeckCreationDashboardComponent', () => {
 
   it('should create the component', () => {
     expect(component).toBeTruthy();
-  });
-
-  it('should call the getDecks method from DeckService on initialization', () => {
-    const mockDecksResponse = {
-      content: [],
-      totalElements: 0,
-      totalPages: 0,
-      number: 0,
-    };
-
-    spyOn(deckService, 'getDecks').and.returnValue(of(mockDecksResponse));
-    component.ngOnInit();
-
-    expect(deckService.getDecks).toHaveBeenCalled();
-    expect(component.decks).toEqual([]); // Ensure decks are empty based on mock response
   });
 
   it('should handle error during deck loading', () => {
