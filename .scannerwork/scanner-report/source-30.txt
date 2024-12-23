@@ -3,10 +3,9 @@ import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-contact',
-  standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
-  template: `
+    selector: 'app-contact',
+    imports: [CommonModule, ReactiveFormsModule],
+    template: `
     <div class="contact-container">
       <h1 class="contact-title">Contactez-nous</h1>
       <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
@@ -37,7 +36,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
     </div>
 
   `,
-  styles: [`
+    styles: [`
     .contact-container {
       max-width: 500px;
       margin: 0 auto;

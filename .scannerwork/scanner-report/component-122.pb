@@ -1,1 +1,1 @@
-z (2tsXhr6src/app/features/flashcard/flashcard.component.spec.ts
+z (2tsXhr6src/app/features/deck-list/deck-list.component.spec.ts

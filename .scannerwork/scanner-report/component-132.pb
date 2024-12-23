@@ -1,1 +1,1 @@
-„ (2tsXžhr)src/app/library/library.component.spec.ts
+„ (2tsXhr=src/app/language-switcher/language-switcher.component.spec.ts

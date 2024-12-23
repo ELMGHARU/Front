@@ -5,15 +5,14 @@ import { RouterModule, ActivatedRoute } from '@angular/router';
 import { DeckService, Deck, Flashcard, FlashcardsResponse, CreateDeckRequest } from '../../deck.service';
 
 @Component({
-  selector: 'app-deck-creation-dashboard',
-  templateUrl: './deck-creation-dashboard.component.html',
-  styleUrls: ['./deck-creation-dashboard.component.css'],
-  standalone: true,
-  imports: [
-    CommonModule,
-    FormsModule,
-    RouterModule
-  ]
+    selector: 'app-deck-creation-dashboard',
+    templateUrl: './deck-creation-dashboard.component.html',
+    styleUrls: ['./deck-creation-dashboard.component.css'],
+    imports: [
+        CommonModule,
+        FormsModule,
+        RouterModule
+    ]
 })
 export class DeckCreationDashboardComponent implements OnInit {
   decks: Deck[] = [];

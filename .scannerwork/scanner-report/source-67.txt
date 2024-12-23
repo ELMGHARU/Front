@@ -2,10 +2,9 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-help',
-  standalone: true,
-  imports: [CommonModule],
-  template: `
+    selector: 'app-help',
+    imports: [CommonModule],
+    template: `
     <div class="help-container">
       <h1 class="help-title">Aide</h1>
       <div class="help-section">
@@ -48,7 +47,7 @@ import { CommonModule } from '@angular/common';
       </div>
     </div>
   `,
-  styles: [`
+    styles: [`
 /* styles.css */
 
 body {

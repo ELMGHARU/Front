@@ -1,1 +1,1 @@
-{ (2tsXhr>src/app/features/study-session/study-session.component.spec.ts
+{ (2tsXhr6src/app/features/flashcard/flashcard.component.spec.ts

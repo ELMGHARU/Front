@@ -1,1 +1,1 @@
-C 2tsXÅhr(src/app/help-page/help-page.component.ts
+C 2tsXÄhr(src/app/help-page/help-page.component.ts

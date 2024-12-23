@@ -7,15 +7,14 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css'],
-  imports: [
-    FormsModule,
-    CommonModule,
-    RouterModule
-  ],
-  standalone: true
+    selector: 'app-register',
+    templateUrl: './register.component.html',
+    styleUrls: ['./register.component.css'],
+    imports: [
+        FormsModule,
+        CommonModule,
+        RouterModule
+    ]
 })
 export class RegisterComponent {
   email: string = '';

@@ -1,1 +1,1 @@
-6 2tsXhr1src/app/features/flashcard/flashcard.component.ts
+6 2tsXhr1src/app/features/flashcard/flashcard.component.ts

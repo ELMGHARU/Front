@@ -3,10 +3,9 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-landing-page',
-  standalone: true,
-  imports: [CommonModule, RouterModule],
-  template: `
+    selector: 'app-landing-page',
+    imports: [CommonModule, RouterModule],
+    template: `
     <div class="main-container">
       <header class="header">
         <nav class="navbar">
@@ -138,7 +137,7 @@ import { RouterModule } from '@angular/router';
 
 
   `,
-  styles: [`
+    styles: [`
     :root {
       --primary: #4A90E2;
       --secondary: #6c757d;
@@ -654,7 +653,7 @@ nav-menu a:active {
     color: white;
   }
    `]
-  })
+})
   export class LandingPageComponent {
    categories = [
      { name: 'Login', route: '/login' },

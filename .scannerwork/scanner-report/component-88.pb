@@ -1,1 +1,1 @@
-X 2tsXÕhr&src/app/practice/practice.component.ts
+X 2tsXÔhr&src/app/practice/practice.component.ts

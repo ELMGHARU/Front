@@ -1,0 +1,27 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../out-tsc/e2e",
+    "module": "commonjs",
+    "target": "es2018",
+    "types": [
+      "jasmine",
+      "node",
+      "selenium-webdriver"
+    ],
+    "sourceMap": true,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "baseUrl": "./",
+    "paths": {
+      "@app/": ["../src/app/"]
+    }
+  },
+  "include": [
+    "src/specs/*.ts"
+  ],
+  "exclude": [
+    "../node_modules"
+  ]
+}

@@ -1,1 +1,1 @@
-3 2tsXhr1src/app/features/deck-list/deck-list.component.ts
+3 2tsXhr1src/app/features/deck-list/deck-list.component.ts

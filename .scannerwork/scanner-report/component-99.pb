@@ -1,1 +1,1 @@
-c 2tsXhr.src/app/social-links/social-links.component.ts
+c 2tsXhr.src/app/social-links/social-links.component.ts

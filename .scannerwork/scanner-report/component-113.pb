@@ -1,1 +1,1 @@
-q (2tsXhr3src/app/contact-page/contact-page.component.spec.ts
+q (2tsX†hr4src/app/components/setting/setting.component.spec.ts

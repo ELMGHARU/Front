@@ -3,13 +3,12 @@ import { DeckService, Deck } from '../deck.service'; // Importer le service
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 @Component({
-  selector: 'app-deck-list',
-  templateUrl: './deck-list.component.html',
-  styleUrls: ['./deck-list.component.css'],
-  standalone: true,
+    selector: 'app-deck-list',
+    templateUrl: './deck-list.component.html',
+    styleUrls: ['./deck-list.component.css'],
     imports: [
-      FormsModule,
-      CommonModule
+        FormsModule,
+        CommonModule
     ]
 })
 export class DeckListComponent implements OnInit {

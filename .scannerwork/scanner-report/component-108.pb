@@ -1,1 +1,1 @@
-l (2tsXjhrsrc/app/auth.guard.spec.ts
+l (2tsXZhrsrc/app/app.component.spec.ts

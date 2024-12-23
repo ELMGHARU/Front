@@ -1,1 +1,1 @@
-y (2tsXhr6src/app/features/deck-list/deck-list.component.spec.ts
+y (2tsXšhrsrc/app/deck.service.spec.ts

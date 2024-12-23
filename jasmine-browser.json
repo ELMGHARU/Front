@@ -1,0 +1,19 @@
+{
+  "srcDir": "src",
+  "srcFiles": [
+    "/.spec.ts"
+  ],
+  "specDir": "e2e/src/specs",
+  "specFiles": [
+    "**/*.spec.ts"
+  ],
+  "helpers": [
+    "src/helpers/**/*.ts"
+  ],
+  "random": true,
+  "browser": {
+    "name": "chrome"
+  },
+  "stopSpecOnExpectationFailure": false,
+  "failFast": false
+}

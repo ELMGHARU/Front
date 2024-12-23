@@ -3,5 +3,5 @@ projectKey=memoria-app_frontend
 serverUrl=https://sonarcloud.io
 serverVersion=8.0.0.58741
 dashboardUrl=https://sonarcloud.io/dashboard?id=memoria-app_frontend
-ceTaskId=AZPkW4a9Oqr6qfjIqWfM
-ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AZPkW4a9Oqr6qfjIqWfM
+ceTaskId=AZPzojKpm2pIx8C1yasY
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AZPzojKpm2pIx8C1yasY

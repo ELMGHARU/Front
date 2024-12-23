@@ -4,13 +4,12 @@ import { RouterModule } from "@angular/router";
 
 
 @Component({
-  selector: 'app-header',
-   standalone: true,
+    selector: 'app-header',
     imports: [
-      CommonModule,
-      RouterModule
+        CommonModule,
+        RouterModule
     ],
-  template: `
+    template: `
     <header class="fixed top-0 w-full z-50">
       <!-- Top bar -->
       <div class="bg-yellow-400 py-2">
@@ -59,7 +58,7 @@ import { RouterModule } from "@angular/router";
       </div>
     </header>
   `,
-  styles: [`
+    styles: [`
     .nav-link {
       color: #374151;
       font-weight: 500;

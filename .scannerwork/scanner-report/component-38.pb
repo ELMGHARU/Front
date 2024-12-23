@@ -1,1 +1,1 @@
-& 2tsXFhr4src/app/dashboard-admin/dashboard-admin.component.ts
+& 2tsXEhr4src/app/dashboard-admin/dashboard-admin.component.ts

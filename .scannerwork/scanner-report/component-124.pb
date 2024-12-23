@@ -1,1 +1,1 @@
-| (2tsXhr!src/app/flashcard.service.spec.ts
+| (2tsXhr>src/app/features/study-session/study-session.component.spec.ts

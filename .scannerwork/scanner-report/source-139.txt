@@ -1,23 +1,34 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { StudySessionService } from './study-session.service';
+import { RouterTestingModule } from '@angular/router/testing';
 
-import { SocialLinksComponent } from './social-links.component';
+describe('StudySessionService', () => {
+  let service: StudySessionService;
+  let httpMock: HttpTestingController;
 
-describe('SocialLinksComponent', () => {
-  let component: SocialLinksComponent;
-  let fixture: ComponentFixture<SocialLinksComponent>;
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [
+        HttpClientTestingModule,
+        RouterTestingModule  // Include if the service uses Router
+      ],
+      providers: [
+        StudySessionService
+      ]
+    });
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [SocialLinksComponent]
-    })
-    .compileComponents();
-
-    fixture = TestBed.createComponent(SocialLinksComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    service = TestBed.inject(StudySessionService);
+    httpMock = TestBed.inject(HttpTestingController);
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  afterEach(() => {
+    httpMock.verify(); // Ensure no outstanding HTTP requests
   });
+
+  it('should be created', () => {
+    expect(service).toBeTruthy();
+  });
+
+  // Add more tests for the service methods here
 });

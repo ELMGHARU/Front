@@ -1,1 +1,1 @@
-w (2tsX hr9src/app/deck-statistics/deck-statistics.component.spec.ts
+w (2tsXhr-src/app/deck-list/deck-list.component.spec.ts
