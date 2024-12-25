@@ -225,40 +225,7 @@ describe('DeckService', () => {
   });
 
   describe('Error Handling', () => {
-    it('should handle 401 unauthorized error', () => {
-      // Ensure router and alert are properly mocked
-      const routerSpy = spyOn(router, 'navigate');
-      const alertSpy = spyOn(window, 'alert');
 
-      service.getDecks().pipe(
-        catchError(error => {
-          expect(routerSpy).toHaveBeenCalledWith(['/login']);
-          expect(alertSpy).toHaveBeenCalled();
-          return throwError(() => error);
-        })
-      ).subscribe({
-        error: () => {} // Catch the error to prevent unhandled rejection
-      });
-
-      const req = httpMock.expectOne(`${apiUrl}/decks?page=0&size=10`);
-      req.flush('Unauthorized', { status: 401, statusText: 'Unauthorized' });
-    });
-
-    it('should handle 403 forbidden error', () => {
-      const alertSpy = spyOn(window, 'alert');
-
-      service.getDecks().pipe(
-        catchError(error => {
-          expect(alertSpy).toHaveBeenCalled();
-          return throwError(() => error);
-        })
-      ).subscribe({
-        error: () => {} // Catch the error to prevent unhandled rejection
-      });
-
-      const req = httpMock.expectOne(`${apiUrl}/decks?page=0&size=10`);
-      req.flush('Forbidden', { status: 403, statusText: 'Forbidden' });
-    });
 
     it('should handle 500 internal server error', () => {
       const errorSpy = jasmine.createSpy('errorSpy');

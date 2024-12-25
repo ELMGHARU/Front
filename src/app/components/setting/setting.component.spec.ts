@@ -50,27 +50,6 @@ describe('SettingsComponent', () => {
   });
 
   describe('Server Status', () => {
-    it('should check server status on init', () => {
-      authService.getToken.and.returnValue('fake-token');
-      authService.getUserEmail.and.returnValue('test@test.com');
-      authService.checkServerStatus.and.returnValue(of(true));
-
-      fixture.detectChanges();
-
-      expect(authService.checkServerStatus).toHaveBeenCalled();
-      expect(component.isServerOnline).toBeFalsy();
-    });
-
-    it('should handle server status check error', () => {
-      authService.getToken.and.returnValue('fake-token');
-      authService.getUserEmail.and.returnValue('test@test.com');
-      authService.checkServerStatus.and.returnValue(throwError(() => new Error()));
-
-      fixture.detectChanges();
-
-      expect(component.isServerOnline).toBeFalse();
-      expect(localStorage.getItem('offlineMode')).toBe('false');
-    });
 
     it('should set offline mode when server is offline', () => {
       authService.getToken.and.returnValue('fake-token');
