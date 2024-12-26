@@ -1,33 +1,31 @@
-name: Run Angular Tests
+name: Angular Tests
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
   pull_request:
-    branches:
-      - main
+    branches: [ main ]
 
 jobs:
   test:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
+    - uses: actions/checkout@v3
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20'
+        cache: 'npm'
 
-      - name: Install Dependencies
-        run: npm install
+    - name: Install dependencies
+      run: npm ci
 
-      - name: Install Chrome Dependencies
-        run: sudo apt-get install -y libnss3 libxss1 libasound2
+    - name: Install Chrome
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y chromium-browser
 
-      - name: Run Tests
-        run: npm test
-        env:
-          CHROME_BIN: /usr/bin/google-chrome-stable
+    - name: Run tests
+      run: npm test -- --no-watch --no-progress --browsers=ChromeHeadless

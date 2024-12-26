@@ -1,3 +1,5 @@
+
+
 module.exports = function (config) {
   config.set({
     basePath: '',
@@ -11,11 +13,14 @@ module.exports = function (config) {
     ],
     client: {
       jasmine: {
-        // Add Jasmine options here if needed
+        // you can add configuration options for Jasmine here
+        // the possible options are listed at https://jasmine.github.io/api/edge/Configuration.html
+        // for example, you can disable the random execution with `random: false`
+        // or set a specific seed with `seed: 4321`
       },
     },
     jasmineHtmlReporter: {
-      suppressAll: true // Removes the duplicated traces
+      suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
       dir: require('path').join(__dirname, './coverage'),
@@ -35,8 +40,7 @@ module.exports = function (config) {
       }
     },
     reporters: ['progress', 'kjhtml'],
-    browsers: ['ChromeHeadless'], // Use headless Chrome for CI
-    singleRun: true, // Ensures the process exits after tests complete in CI environments
+    browsers: ['Chrome'],
     restartOnFileChange: true
   });
 };
