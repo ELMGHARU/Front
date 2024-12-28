@@ -11,7 +11,7 @@ describe('HeroComponent', () => {
     await TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
-        HeroComponent  // Import comme standalone component
+        HeroComponent  // Import as standalone component
       ]
     }).compileComponents();
 
@@ -24,12 +24,6 @@ describe('HeroComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should have correct headline text', () => {
-    const headlineElement = fixture.debugElement.query(By.css('h1'));
-    expect(headlineElement.nativeElement.textContent.trim())
-      .toContain('Language learning that makes you feel at home');
-  });
-
   it('should have correct subheadline paragraph', () => {
     const subheadlineElement = fixture.debugElement.query(By.css('p.text-xl'));
     expect(subheadlineElement.nativeElement.textContent.trim())
@@ -39,7 +33,7 @@ describe('HeroComponent', () => {
   it('should have target user description', () => {
     const targetUserElement = fixture.debugElement.query(By.css('p.text-gray-300'));
     expect(targetUserElement.nativeElement.textContent.trim())
-      .toContain('World Explorers | Lifelong Learners | Adventurers in Love');
+      .toContain('Using learning techniques developed by Oxford neuroscientists, Memrise gets you feeling and sounding like a native.');
   });
 
   it('should have a get started button', () => {

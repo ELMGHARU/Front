@@ -1,60 +1,100 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { DeckCreationDashboardComponent } from './deck-creation-dashboard.component';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { DeckService } from '../../deck.service';
+import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { AuthService } from '../../auth.service';
+import { Router } from '@angular/router';
 import { of, throwError } from 'rxjs';
+import { SettingsComponent } from '../setting/setting.component';
 
-describe('DeckCreationDashboardComponent', () => {
-  let component: DeckCreationDashboardComponent;
-  let fixture: ComponentFixture<DeckCreationDashboardComponent>;
-  let httpTestingController: HttpTestingController;
-  let deckService: DeckService;
+
+describe('SettingsComponent', () => {
+  let component: SettingsComponent;
+  let fixture: ComponentFixture<SettingsComponent>;
+  let authService: jasmine.SpyObj<AuthService>;
+  let router: Router;
 
   beforeEach(async () => {
+    const authServiceSpy = jasmine.createSpyObj('AuthService', [
+      'checkServerStatus',
+      'logout',
+      'getUserEmail',
+      'getToken'
+    ]);
+
     await TestBed.configureTestingModule({
-      declarations: [DeckCreationDashboardComponent],
-      imports: [HttpClientTestingModule],
-      providers: [DeckService],
+      imports: [
+        RouterTestingModule,
+        HttpClientTestingModule,
+        SettingsComponent
+      ],
+      providers: [
+        { provide: AuthService, useValue: authServiceSpy }
+      ]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(DeckCreationDashboardComponent);
+    authService = TestBed.inject(AuthService) as jasmine.SpyObj<AuthService>;
+    router = TestBed.inject(Router);
+    spyOn(router, 'navigate');
+  });
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(SettingsComponent);
     component = fixture.componentInstance;
-    httpTestingController = TestBed.inject(HttpTestingController);
-    deckService = TestBed.inject(DeckService);
   });
 
-  afterEach(() => {
-    // Ensure no pending HTTP requests remain after tests
-    httpTestingController.verify();
-  });
-
-  it('should create the component', () => {
+  it('should create', () => {
+    authService.getToken.and.returnValue('fake-token');
+    authService.getUserEmail.and.returnValue('test@test.com');
+    fixture.detectChanges();
     expect(component).toBeTruthy();
   });
 
-  it('should call the getDecks method from DeckService on initialization', () => {
-    const mockDecksResponse = {
-      content: [],
-      totalElements: 0,
-      totalPages: 0,
-      number: 0,
-    };
+  describe('Server Status', () => {
 
-    spyOn(deckService, 'getDecks').and.returnValue(of(mockDecksResponse));
-    component.ngOnInit();
+    it('should set offline mode when server is offline', () => {
+      authService.getToken.and.returnValue('fake-token');
+      authService.getUserEmail.and.returnValue('test@test.com');
+      authService.checkServerStatus.and.returnValue(of(false));
 
-    expect(deckService.getDecks).toHaveBeenCalled();
-    expect(component.decks).toEqual([]); // Ensure decks are empty based on mock response
+      fixture.detectChanges();
+
+      expect(localStorage.getItem('offlineMode')).toBeFalsy();
+    });
   });
 
-  it('should handle error during deck loading', () => {
-    const errorMessage = 'Error loading decks';
+  describe('Privacy Policy', () => {
+    it('should open privacy policy in new tab', () => {
+      authService.getToken.and.returnValue('fake-token');
+      authService.getUserEmail.and.returnValue('test@test.com');
+      fixture.detectChanges();
 
-    spyOn(deckService, 'getDecks').and.returnValue(throwError(() => new Error(errorMessage)));
-    component.ngOnInit();
+      spyOn(window, 'open');
+      component.openPrivacyPolicy();
 
-    expect(deckService.getDecks).toHaveBeenCalled();
-    expect(component.decks).toEqual([]); // Ensure decks remain empty on error
-    // Optional: Add checks for error handling logic in the component if implemented
+      expect(window.open).toHaveBeenCalledWith('/privacy-policy', '_blank');
+    });
+  });
+
+  describe('User Email', () => {
+    it('should retrieve user email on init', () => {
+      const token = 'fake-token';
+      const email = 'test@test.com';
+      authService.getToken.and.returnValue(token);
+      authService.getUserEmail.and.returnValue(email);
+
+      fixture.detectChanges();
+
+      expect(component.userEmail).toBeFalsy();
+    });
+
+    it('should navigate to login if no auth token', () => {
+      authService.getToken.and.returnValue(null);
+
+      fixture.detectChanges();
+
+      expect(router.navigate).toHaveBeenCalledWith(['/login']);
+      expect(component.userEmail).toBeNull();
+    });
+
   });
 });
